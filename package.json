@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-get-chapter-royalroad-in-epub-test",
-  "version": "0.1.4",
+  "version": "0.1.8",
   "description": "A node for download one or multiple royalroad chapters in epub format",
   "keywords": [
     "n8n-community-node-package"
@@ -40,7 +40,8 @@
     "nodes": [
       "dist/nodes/ExampleNode/ExampleNode.node.js",
       "dist/nodes/HttpBin/HttpBin.node.js",
-      "dist/nodes/RoyalRoadNode/RoyalRoadNode.node.js"
+      "dist/nodes/RoyalRoadNode/RoyalRoadNode.node.js",
+      "dist/nodes/HtmlToEpubNode/HtmlToEpubNode.node.js"
     ]
   },
   "devDependencies": {
@@ -49,7 +50,8 @@
     "eslint-plugin-n8n-nodes-base": "^1.16.3",
     "gulp": "^5.0.0",
     "prettier": "^3.5.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "@types/node": "^20.14.12"
   },
   "peerDependencies": {
     "n8n-workflow": "*"
