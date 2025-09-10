@@ -1,19 +1,19 @@
 {
-  "name": "n8n-nodes-<...>",
+  "name": "dev-n8n-nodes-get-chapter-royalroad-in-epub",
   "version": "0.1.0",
-  "description": "",
+  "description": "A node for download one or multiple royalroad chapters in epub format",
   "keywords": [
     "n8n-community-node-package"
   ],
   "license": "MIT",
   "homepage": "",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "JamesDAdams",
+    "email": "contact@jamestech.fr"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "https://github.com/JamesDAdams/n8n-nodes-download-chapter-royalroad-in-epub "
   },
   "engines": {
     "node": ">=20.15"
@@ -51,5 +51,8 @@
   },
   "peerDependencies": {
     "n8n-workflow": "*"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12"
   }
 }
