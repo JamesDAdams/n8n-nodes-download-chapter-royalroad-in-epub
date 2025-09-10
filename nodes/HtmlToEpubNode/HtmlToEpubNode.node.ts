@@ -328,73 +328,73 @@ export class HtmlToEpubNode implements INodeType {
 		name: 'htmlToEpubNode',
 		group: ['transform'],
 		version: 1,
-		description: 'Convertit un HTML (binaire ou chaîne) en fichier EPUB',
+		description: 'Convert HTML (binary or string) to EPUB file',
 		defaults: { name: 'HTML → EPUB' },
 		inputs: [NodeConnectionType.Main],
 		outputs: [NodeConnectionType.Main],
 		usableAsTool: true,
 		properties: [
 			{
-				displayName: "Mode D'Entrée",
+				displayName: 'Input Mode',
 				name: 'inputMode',
 				type: 'options',
 				options: [
-					{ name: 'Binaire (HTML)', value: 'binary' },
-					{ name: 'Chaîne (HTML)', value: 'string' },
+					{ name: 'Binary (HTML)', value: 'binary' },
+					{ name: 'String (HTML)', value: 'string' },
 				],
 				default: 'binary',
-				description: 'Source du HTML d\'entrée',
+				description: 'Source of the input HTML',
 			},
 			{
-				displayName: 'Nom De Propriété Binaire',
+				displayName: 'Binary Property Name',
 				name: 'binaryPropertyName',
 				type: 'string',
 				default: 'data',
-				description: 'Propriété binaire contenant le HTML',
+				description: 'Binary property containing the HTML',
 				displayOptions: { show: { inputMode: ['binary'] } },
 			},
 			{
-				displayName: 'Nom De Propriété JSON Avec Le HTML',
+				displayName: 'JSON Property Name with HTML',
 				name: 'stringPropertyName',
 				type: 'string',
 				default: 'book',
-				description: 'Clé JSON contenant le HTML brut',
+				description: 'JSON key containing the raw HTML',
 				displayOptions: { show: { inputMode: ['string'] } },
 			},
 			{
-				displayName: 'Titre',
+				displayName: 'Title',
 				name: 'title',
 				type: 'string',
 				default: '',
-				description: 'Titre à définir dans l\'EPUB (facultatif)',
+				description: 'Title to set in the EPUB (optional)',
 			},
 			{
-				displayName: 'Auteur',
+				displayName: 'Author',
 				name: 'author',
 				type: 'string',
 				default: 'Unknown',
-				description: 'Auteur de l\'EPUB',
+				description: 'Author of the EPUB',
 			},
 			{
-				displayName: 'Langue',
+				displayName: 'Language',
 				name: 'language',
 				type: 'string',
 				default: 'en',
-				description: 'Langue du livre',
+				description: 'Language of the book',
 			},
 			{
-				displayName: 'Nom Du Fichier EPUB',
+				displayName: 'EPUB File Name',
 				name: 'fileName',
 				type: 'string',
 				default: 'book.epub',
-				description: 'Nom du fichier EPUB de sortie',
+				description: 'Name of the output EPUB file',
 			},
 			{
-				displayName: 'Propriété Binaire De Sortie',
+				displayName: 'Output Binary Property Name',
 				name: 'outputBinaryPropertyName',
 				type: 'string',
 				default: 'data',
-				description: 'Nom de la propriété binaire où écrire l\'EPUB',
+				description: 'Name of the binary property to write the EPUB to',
 			},
 		],
 	};
@@ -420,7 +420,7 @@ export class HtmlToEpubNode implements INodeType {
 					const stringPropertyName = this.getNodeParameter('stringPropertyName', i, 'book') as string;
 					const val = items[i]?.json?.[stringPropertyName];
 					if (typeof val !== 'string' || !val) {
-						throw new NodeOperationError(this.getNode(), `La propriété JSON '${stringPropertyName}' doit contenir une chaîne HTML non vide.`, { itemIndex: i });
+						throw new NodeOperationError(this.getNode(), `The JSON property '${stringPropertyName}' must contain a non-empty HTML string.`, { itemIndex: i });
 					}
 					html = val;
 				}
