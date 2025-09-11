@@ -326,6 +326,7 @@ export class HtmlToEpubNode implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'HTML → EPUB',
 		name: 'htmlToEpubNode',
+		icon: { light: 'file:html-to-svg.svg', dark: 'file:html-to-svg.svg' },
 		group: ['transform'],
 		version: 1,
 		description: 'Convert HTML (binary or string) to EPUB file',

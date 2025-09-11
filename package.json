@@ -1,7 +1,7 @@
 {
   "name": "n8n-nodes-get-chapter-royalroad-in-epub-test",
-  "version": "0.2.2",
-  "description": "A node for download one or multiple royalroad chapters in epub format",
+  "version": "0.2.5",
+  "description": "A N8N node for download one or multiple royalroad chapters in epub format",
   "keywords": [
     "n8n-community-node-package"
   ],

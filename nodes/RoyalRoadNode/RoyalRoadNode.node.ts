@@ -114,6 +114,7 @@ export class RoyalRoadNode implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'RoyalRoad: Fetch Chapters',
 		name: 'royalRoadNode',
+		icon: { light: 'file:roalroad.svg', dark: 'file:roalroad.svg' },
 		group: ['transform'],
 		version: 1,
 		description: 'Fetches sequential RoyalRoad chapters and outputs combined HTML',
