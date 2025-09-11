@@ -21,7 +21,7 @@ This project contains custom nodes for n8n to download chapters from RoyalRoad a
 
 ### Pre-configured Workflow
 
-You can use the pre-configured workflow provided in this project. Simply copy the content of the `n8n-template.json` file and paste it into n8n to get a fully functional workflow.
+You can use the pre-configured workflow provided in this project. Simply copy the content of the [`n8n-template.json`](https://github.com/JamesDAdams/n8n-nodes-download-chapter-royalroad-in-epub/blob/master/doc/n8n-template.json) file and paste it into n8n to get a fully functional workflow.
 
 ![Workflow Preview](./doc/n8n-template.png)
 
