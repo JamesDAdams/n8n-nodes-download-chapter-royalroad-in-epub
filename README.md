@@ -17,6 +17,22 @@ This project contains custom nodes for n8n to download chapters from RoyalRoad a
 
 ![HtmlToEpubNode](./doc/HtmlToEpubNode.png)
 
+## Import Workflow
+
+### Pre-configured Workflow
+
+You can use the pre-configured workflow provided in this project. Simply copy the content of the `n8n-template.json` file and paste it into n8n to get a fully functional workflow.
+
+![Workflow Preview](./doc/n8n-template.png)
+
+This workflow includes the following steps:
+
+1. **RSS Feed Primal Hunter**: Fetches updates from the RoyalRoad RSS feed.
+2. **Send notif Discord1**: Sends a notification to Discord.
+3. **RoyalRoad: Fetch Chapters**: Downloads chapters from RoyalRoad.
+4. **HTML → EPUB**: Converts the downloaded HTML chapters into an EPUB file.
+5. **Write Binary File**: Saves the EPUB file locally (for me on komga).
+
 ## Usage
 
 ### RoyalRoadNode
@@ -38,6 +54,7 @@ This project contains custom nodes for n8n to download chapters from RoyalRoad a
   - `Author`: Author of the book.
   - `Language`: Language of the book.
   - `File Name`: Name of the generated EPUB file.
+
 
 ## Scripts
 

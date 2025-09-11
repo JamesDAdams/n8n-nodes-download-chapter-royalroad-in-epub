@@ -1,0 +1,139 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=YOURDISCORDWEBHOOK",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"content\": \"📰 {{ $json['link'] }}\"\n}",
+        "options": {}
+      },
+      "id": "4b66b673-e169-4cf3-95de-10b6b5722349",
+      "name": "Send notif Discord1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        976,
+        912
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.link }}",
+        "fileName": "={{ $json.title }}.html"
+      },
+      "type": "n8n-nodes-get-chapter-royalroad-in-epub-test.royalRoadNode",
+      "typeVersion": 1,
+      "position": [
+        992,
+        1184
+      ],
+      "id": "c46f67b9-695b-46f6-baef-a9e38ccf9eb2",
+      "name": "RoyalRoad: Fetch Chapters"
+    },
+    {
+      "parameters": {
+        "title": "={{ $('RSS Feed Primal Hunter').item.json.title }}",
+        "author": "Zogarth",
+        "fileName": "={{ $('RSS Feed Primal Hunter').item.json.title }}.epub"
+      },
+      "type": "n8n-nodes-get-chapter-royalroad-in-epub-test.htmlToEpubNode",
+      "typeVersion": 1,
+      "position": [
+        1184,
+        1184
+      ],
+      "id": "f93d8227-4f86-4537-a42b-96f047c93cd8",
+      "name": "HTML → EPUB"
+    },
+    {
+      "parameters": {
+        "fileName": "=/books/primal-hunter/{{ $json.meta.title }}.epub",
+        "options": {}
+      },
+      "id": "d482be8d-0883-4e74-a958-d7ed9fad5612",
+      "name": "Write Binary File",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [
+        1392,
+        1184
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyHour"
+            }
+          ]
+        },
+        "feedUrl": "https://www.royalroad.com/fiction/syndication/36049"
+      },
+      "id": "3c6e9847-f75f-4115-8420-c379906ee759",
+      "name": "RSS Feed Primal Hunter",
+      "type": "n8n-nodes-base.rssFeedReadTrigger",
+      "typeVersion": 1,
+      "position": [
+        688,
+        912
+      ]
+    }
+  ],
+  "connections": {
+    "RoyalRoad: Fetch Chapters": {
+      "main": [
+        [
+          {
+            "node": "HTML → EPUB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML → EPUB": {
+      "main": [
+        [
+          {
+            "node": "Write Binary File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Feed Primal Hunter": {
+      "main": [
+        [
+          {
+            "node": "Send notif Discord1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RoyalRoad: Fetch Chapters",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "instanceId": "6506495f22fb0b37b49c12e74b502818d201cb1c3d18b1c98e28beb8da7f5487"
+  }
+}
