@@ -7,6 +7,16 @@ This project contains custom nodes for n8n to download chapters from RoyalRoad a
 - **RoyalRoadNode**: Downloads multiple chapters from RoyalRoad and generates a combined HTML file.
 - **HtmlToEpubNode**: Converts an HTML file (binary or string) into an EPUB file.
 
+## Node Previews
+
+### RoyalRoadNode
+
+![RoyalRoadNode](./doc/RoyalRoadNode.png)
+
+### HtmlToEpubNode
+
+![HtmlToEpubNode](./doc/HtmlToEpubNode.png)
+
 ## Usage
 
 ### RoyalRoadNode
